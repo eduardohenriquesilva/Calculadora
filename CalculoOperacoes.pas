@@ -7,8 +7,6 @@ uses
 
 type
   TDmCalculoOperacoes = class(TDataModule)
-  private
-    { Private declarations }
   public
     function Somar(const ValorEsquerda, ValorDireita: Extended): Extended;
   end;
