@@ -16,6 +16,9 @@ type
     ActionAdicao: TAction;
     Label1: TLabel;
     LabelOperacao: TLabel;
+    ButtonSubtracao: TButton;
+    ActionSubtracao: TAction;
+    procedure ActionSubtracaoExecute(Sender: TObject);
     procedure ActionAdicaoExecute(Sender: TObject);
   private
     FCalculo: TDmCalculoOperacoes;
@@ -37,13 +40,24 @@ begin
   FCalculo := TDmCalculoOperacoes.Create(AOwner);
 end;
 
+procedure TFormPrincipal.ActionSubtracaoExecute(Sender: TObject);
+var VD, VE: Extended;
+begin
+ LabelOperacao.Caption := '-';
+
+  VE := ObterValor(EditValorEsquerda);
+  VD := ObterValor(EditValorDireita);
+
+  EditResultado.Text := Format('%8.5f', [FCalculo.Subtrair(VE, VD)])
+end;
+
 procedure TFormPrincipal.ActionAdicaoExecute(Sender: TObject);
 var VD, VE: Extended;
 begin
   LabelOperacao.Caption := '+';
 
-  VD := ObterValor(EditValorEsquerda);
-  VE := ObterValor(EditValorDireita);
+  VE := ObterValor(EditValorEsquerda);
+  VD := ObterValor(EditValorDireita);
 
   EditResultado.Text := Format('%8.5f', [FCalculo.Somar(VE, VD)])
 end;
