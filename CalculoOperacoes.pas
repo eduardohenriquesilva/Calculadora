@@ -3,14 +3,12 @@ unit CalculoOperacoes;
 interface
 
 uses
-  System.SysUtils,
-  System.Classes;
+  System.SysUtils, System.Classes;
 
 type
   TDmCalculoOperacoes = class(TDataModule)
   public
-    function Somar(const ValorEsquerda, ValorDireita: Currency): Currency;
-    function Subtrair(const ValorEsquerda, ValorDireita: Currency): Currency;
+    function Somar(const ValorEsquerda, ValorDireita: Extended): Extended;
   end;
 
 var
@@ -18,20 +16,15 @@ var
 
 implementation
 
-{ %CLASSGROUP 'System.Classes.TPersistent' }
+{%CLASSGROUP 'System.Classes.TPersistent'}
 
 {$R *.dfm}
 
 { TDmCalculoOperacoes }
 
-function TDmCalculoOperacoes.Somar(const ValorEsquerda, ValorDireita: Currency): Currency;
+function TDmCalculoOperacoes.Somar(const ValorEsquerda, ValorDireita: Extended): Extended;
 begin
   Result := ValorEsquerda + ValorDireita;
-end;
-
-function TDmCalculoOperacoes.Subtrair(const ValorEsquerda, ValorDireita: Currency): Currency;
-begin
-  Result := ValorEsquerda - ValorDireita;
 end;
 
 end.
