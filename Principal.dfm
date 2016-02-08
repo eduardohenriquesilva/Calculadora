@@ -58,12 +58,36 @@ object FormPrincipal: TFormPrincipal
     Action = ActionAdicao
     TabOrder = 3
   end
+  object ButtonSubtracao: TButton
+    Left = 120
+    Top = 96
+    Width = 75
+    Height = 25
+    Action = ActionSubtracao
+    TabOrder = 4
+  end
+  object ButtonMultiplicacao: TButton
+    Left = 215
+    Top = 96
+    Width = 75
+    Height = 25
+    Action = ActionMultiplicacao
+    TabOrder = 5
+  end
   object ActionListCalculadora: TActionList
     Left = 72
     Top = 232
     object ActionAdicao: TAction
       Caption = 'Adi'#231#227'o'
       OnExecute = ActionAdicaoExecute
+    end
+    object ActionSubtracao: TAction
+      Caption = 'Subtra'#231#227'o'
+      OnExecute = ActionSubtracaoExecute
+    end
+    object ActionMultiplicacao: TAction
+      Caption = 'Multiplica'#231#227'o'
+      OnExecute = ActionMultiplicacaoExecute
     end
   end
 end
