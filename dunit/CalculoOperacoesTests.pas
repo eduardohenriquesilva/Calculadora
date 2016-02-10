@@ -20,7 +20,7 @@ type
     procedure Somar_Menos3Com2_ResultadoMenos1;
     procedure Somar_2Ponto5Com1Ponto3_Resultado3Ponto3;
     procedure Subtrair_4com2_Resultado2;
-    procedure Subtrair_3com2_Resultado1;
+    procedure Subtrair_3ComMenos1Ponto9_Resultado4Ponto9;
     procedure Subtrair_Menos3Com4_ResultadoMenos1;
     procedure Subtrair_3Ponto8Com1Ponto6_Resultado2Ponto2;
   end;
@@ -52,9 +52,9 @@ begin
   CheckEquals(2, FSUT.Subtrair(4, 2));
 end;
 
-procedure TCalculoOperacoesTests.Subtrair_3com2_Resultado1;
+procedure TCalculoOperacoesTests.Subtrair_3ComMenos1Ponto9_Resultado4Ponto9;
 begin
-  CheckEquals(1, FSUT.Subtrair(3, 2));
+  CheckEquals(4.9, FSUT.Subtrair(3, -1.9));
 end;
 
 procedure TCalculoOperacoesTests.Subtrair_Menos3Com4_ResultadoMenos1;
