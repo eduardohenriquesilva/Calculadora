@@ -2,7 +2,11 @@ unit CalculoOperacoesTests;
 
 interface
 
-uses TestFramework, System.Classes, CalculoOperacoes, System.SysUtils;
+uses 
+  TestFramework, 
+  System.Classes, 
+  CalculoOperacoes, 
+  System.SysUtils;
 
 type
   TCalculoOperacoesTests = class(TTestCase)
@@ -15,6 +19,10 @@ type
     procedure Somar_Menos2ComMenos3_ResultadoMenos5;
     procedure Somar_Menos3Com2_ResultadoMenos1;
     procedure Somar_2Ponto5Com1Ponto3_Resultado3Ponto3;
+    procedure Subtrair_4com2_Resultado2;
+    procedure Subtrair_3ComMenos1Ponto9_Resultado4Ponto9;
+    procedure Subtrair_Menos3Com4_ResultadoMenos1;
+    procedure Subtrair_3Ponto8Com1Ponto6_Resultado2Ponto2;
   end;
 
 implementation
@@ -37,6 +45,26 @@ end;
 procedure TCalculoOperacoesTests.Somar_Menos3Com2_ResultadoMenos1;
 begin
   CheckEquals(-1, FSUT.Somar(-3, 2));
+end;
+
+procedure TCalculoOperacoesTests.Subtrair_4com2_Resultado2;
+begin
+  CheckEquals(2, FSUT.Subtrair(4, 2));
+end;
+
+procedure TCalculoOperacoesTests.Subtrair_3ComMenos1Ponto9_Resultado4Ponto9;
+begin
+  CheckEquals(4.9, FSUT.Subtrair(3, -1.9));
+end;
+
+procedure TCalculoOperacoesTests.Subtrair_Menos3Com4_ResultadoMenos1;
+begin
+  CheckEquals(-7, FSUT.Subtrair(-3, 4));
+end;
+
+procedure TCalculoOperacoesTests.Subtrair_3Ponto8Com1Ponto6_Resultado2Ponto2;
+begin
+  CheckEquals(2.2, FSUT.Subtrair(3.8, 1.6));
 end;
 
 procedure TCalculoOperacoesTests.TearDown;
