@@ -51,7 +51,7 @@ object FormPrincipal: TFormPrincipal
     TabOrder = 2
   end
   object ButtonAdicao: TButton
-    Left = 24
+    Left = 32
     Top = 96
     Width = 75
     Height = 25
@@ -59,7 +59,7 @@ object FormPrincipal: TFormPrincipal
     TabOrder = 3
   end
   object ButtonSubtracao: TButton
-    Left = 120
+    Left = 128
     Top = 96
     Width = 75
     Height = 25
@@ -67,16 +67,23 @@ object FormPrincipal: TFormPrincipal
     TabOrder = 4
   end
   object ButtonMultiplicacao: TButton
-    Left = 215
+    Left = 223
     Top = 96
     Width = 75
     Height = 25
     Action = ActionMultiplicacao
     TabOrder = 5
   end
+  object ButtonDivisao: TButton
+    Left = 320
+    Top = 96
+    Width = 75
+    Height = 25
+    Action = ActionDivisao
+    TabOrder = 6
+  end
   object ActionListCalculadora: TActionList
-    Left = 72
-    Top = 232
+    Top = 264
     object ActionAdicao: TAction
       Caption = 'Adi'#231#227'o'
       OnExecute = ActionAdicaoExecute
@@ -88,6 +95,10 @@ object FormPrincipal: TFormPrincipal
     object ActionMultiplicacao: TAction
       Caption = 'Multiplica'#231#227'o'
       OnExecute = ActionMultiplicacaoExecute
+    end
+    object ActionDivisao: TAction
+      Caption = 'Divis'#227'o'
+      OnExecute = ActionDivisaoExecute
     end
   end
 end

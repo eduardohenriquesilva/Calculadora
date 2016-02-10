@@ -30,6 +30,9 @@ type
     ActionSubtracao: TAction;
     ActionMultiplicacao: TAction;
     ButtonMultiplicacao: TButton;
+    ButtonDivisao: TButton;
+    ActionDivisao: TAction;
+    procedure ActionDivisaoExecute(Sender: TObject);
     procedure ActionMultiplicacaoExecute(Sender: TObject);
     procedure ActionSubtracaoExecute(Sender: TObject);
     procedure ActionAdicaoExecute(Sender: TObject);
@@ -53,6 +56,18 @@ constructor TFormPrincipal.Create(AOwner: TComponent);
 begin
   inherited;
   FCalculo := TDmCalculoOperacoes.Create(AOwner);
+end;
+
+procedure TFormPrincipal.ActionDivisaoExecute(Sender: TObject);
+var
+  VE, VD: Extended;
+begin
+  LabelOperacao.Caption := '/';
+
+  VE := ObterValor(EditValorEsquerda);
+  VD := ObterValor(EditValorDireita);
+
+  EditResultado.Text := Format('%8.5f', [FCalculo.Dividir(VE, VD)])
 end;
 
 procedure TFormPrincipal.ActionMultiplicacaoExecute(Sender: TObject);

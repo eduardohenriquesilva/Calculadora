@@ -12,6 +12,7 @@ type
   TCalculoOperacoesTests = class(TTestCase)
   strict private
     FSUT: TDmCalculoOperacoes;
+    procedure DividirPorZero;
   public
     procedure SetUp; override;
     procedure TearDown; override;
@@ -26,9 +27,17 @@ type
     procedure Multiplicar_4Com4_Resultado16;
     procedure Multiplicar_5com0_Resultado0;
     procedure Multiplicar_Menos3com1Ponto5_ResultadoMenos4Ponto5;
+    procedure Dividir_5Com2_Resultado2Ponto5;
+    procedure Dividir_12ComMenos1Ponto5_ResultadoMenos6Ponto66;
+    procedure Dividir_1PorZero_LevantarExceptionEZeroDivide;
   end;
 
 implementation
+
+procedure TCalculoOperacoesTests.DividirPorZero;
+begin
+  FSUT.Dividir(1, 0);
+end;
 
 procedure TCalculoOperacoesTests.SetUp;
 begin
@@ -83,6 +92,21 @@ end;
 procedure TCalculoOperacoesTests.Multiplicar_Menos3com1Ponto5_ResultadoMenos4Ponto5;
 begin
   CheckEquals(-4.5, FSUT.Multiplicar(-3, 1.5));
+end;
+
+procedure TCalculoOperacoesTests.Dividir_5Com2_Resultado2Ponto5;
+begin
+  CheckEquals(2.5, FSUT.Dividir(5, 2));
+end;
+
+procedure TCalculoOperacoesTests.Dividir_12ComMenos1Ponto5_ResultadoMenos6Ponto66;
+begin
+  CheckEquals(-8, FSUT.Dividir(12, -1.5));
+end;
+
+procedure TCalculoOperacoesTests.Dividir_1PorZero_LevantarExceptionEZeroDivide;
+begin
+  CheckException(DividirPorZero, ECalculoOperacoes);
 end;
 
 procedure TCalculoOperacoesTests.TearDown;
