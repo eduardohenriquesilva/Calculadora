@@ -2,9 +2,19 @@ unit Principal;
 
 interface
 
-uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  Vcl.StdCtrls, Vcl.ActnList, CalculoOperacoes;
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
+  Vcl.ActnList,
+  CalculoOperacoes;
 
 type
   TFormPrincipal = class(TForm)
@@ -18,6 +28,9 @@ type
     LabelOperacao: TLabel;
     ButtonSubtracao: TButton;
     ActionSubtracao: TAction;
+    ActionMultiplicacao: TAction;
+    ButtonMultiplicacao: TButton;
+    procedure ActionMultiplicacaoExecute(Sender: TObject);
     procedure ActionSubtracaoExecute(Sender: TObject);
     procedure ActionAdicaoExecute(Sender: TObject);
   private
@@ -28,11 +41,13 @@ type
 
   end;
 
-var FormPrincipal: TFormPrincipal;
+var
+  FormPrincipal: TFormPrincipal;
 
 implementation
 
 {$R *.dfm}
+
 
 constructor TFormPrincipal.Create(AOwner: TComponent);
 begin
@@ -40,10 +55,23 @@ begin
   FCalculo := TDmCalculoOperacoes.Create(AOwner);
 end;
 
-procedure TFormPrincipal.ActionSubtracaoExecute(Sender: TObject);
-var VD, VE: Extended;
+procedure TFormPrincipal.ActionMultiplicacaoExecute(Sender: TObject);
+var
+  VD, VE: Extended;
 begin
- LabelOperacao.Caption := '-';
+  LabelOperacao.Caption := '*';
+
+  VE := ObterValor(EditValorEsquerda);
+  VD := ObterValor(EditValorDireita);
+
+  EditResultado.Text := Format('%8.5f', [FCalculo.Multiplicar(VE, VD)])
+end;
+
+procedure TFormPrincipal.ActionSubtracaoExecute(Sender: TObject);
+var
+  VD, VE: Extended;
+begin
+  LabelOperacao.Caption := '-';
 
   VE := ObterValor(EditValorEsquerda);
   VD := ObterValor(EditValorDireita);
@@ -52,7 +80,8 @@ begin
 end;
 
 procedure TFormPrincipal.ActionAdicaoExecute(Sender: TObject);
-var VD, VE: Extended;
+var
+  VD, VE: Extended;
 begin
   LabelOperacao.Caption := '+';
 

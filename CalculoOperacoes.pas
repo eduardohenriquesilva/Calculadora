@@ -11,6 +11,7 @@ type
   public
     function Somar(const ValorEsquerda, ValorDireita: Currency): Currency;
     function Subtrair(const ValorEsquerda, ValorDireita: Currency): Currency;
+    function Multiplicar(const ValorEsquerda, ValorDireita: Currency): Currency;
   end;
 
 var
@@ -32,6 +33,11 @@ end;
 function TDmCalculoOperacoes.Subtrair(const ValorEsquerda, ValorDireita: Currency): Currency;
 begin
   Result := ValorEsquerda - ValorDireita;
+end;
+
+function TDmCalculoOperacoes.Multiplicar(const ValorEsquerda, ValorDireita: Currency): Currency;
+begin
+  Result := ValorEsquerda * ValorDireita;
 end;
 
 end.
