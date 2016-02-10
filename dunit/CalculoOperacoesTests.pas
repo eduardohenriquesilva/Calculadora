@@ -2,10 +2,10 @@ unit CalculoOperacoesTests;
 
 interface
 
-uses 
-  TestFramework, 
-  System.Classes, 
-  CalculoOperacoes, 
+uses
+  TestFramework,
+  System.Classes,
+  CalculoOperacoes,
   System.SysUtils;
 
 type
@@ -26,7 +26,6 @@ type
     procedure Multiplicar_4Com4_Resultado16;
     procedure Multiplicar_5com0_Resultado0;
     procedure Multiplicar_Menos3com1Ponto5_ResultadoMenos4Ponto5;
-
   end;
 
 implementation
@@ -85,7 +84,6 @@ procedure TCalculoOperacoesTests.Multiplicar_Menos3com1Ponto5_ResultadoMenos4Pon
 begin
   CheckEquals(-4.5, FSUT.Multiplicar(-3, 1.5));
 end;
-
 
 procedure TCalculoOperacoesTests.TearDown;
 begin
