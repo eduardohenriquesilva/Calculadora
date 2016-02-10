@@ -12,3 +12,5 @@ Fazer um calculadora com as 4 operações básicas:
 
 *multiplicação*: Multiplica o valor da esquerda com o da direita. 
 
+*Divisão*: Divide o valor da esquerda com o da direita. 
+
