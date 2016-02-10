@@ -7,6 +7,8 @@ uses
   System.Classes;
 
 type
+  ECalculoOperacoes = Exception;
+
   TDmCalculoOperacoes = class(TDataModule)
   public
     function Somar(const ValorEsquerda, ValorDireita: Currency): Currency;
@@ -19,6 +21,9 @@ var
   DmCalculoOperacoes: TDmCalculoOperacoes;
 
 implementation
+
+uses
+  Vcl.Dialogs;
 
 { %CLASSGROUP 'System.Classes.TPersistent' }
 
@@ -43,7 +48,16 @@ end;
 
 function TDmCalculoOperacoes.Dividir(const ValorEsquerda, ValorDireita: Currency): Currency;
 begin
-  Result := ValorEsquerda / ValorDireita;
+  try
+    Result := ValorEsquerda / ValorDireita;
+  except
+    on E: EZeroDivide do
+    begin
+      raise ECalculoOperacoes.Create('Não pode dividir por zero');
+    end
+    else
+      raise;
+  end;
 end;
 
 end.

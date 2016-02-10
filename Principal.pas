@@ -58,11 +58,11 @@ begin
   FCalculo := TDmCalculoOperacoes.Create(AOwner);
 end;
 
-
 procedure TFormPrincipal.ActionDivisaoExecute(Sender: TObject);
-var VE, VD: Extended;
+var
+  VE, VD: Extended;
 begin
-LabelOperacao.Caption := '/';
+  LabelOperacao.Caption := '/';
 
   VE := ObterValor(EditValorEsquerda);
   VD := ObterValor(EditValorDireita);
