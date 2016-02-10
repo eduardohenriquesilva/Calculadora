@@ -2,10 +2,10 @@ unit CalculoOperacoesTests;
 
 interface
 
-uses 
-  TestFramework, 
-  System.Classes, 
-  CalculoOperacoes, 
+uses
+  TestFramework,
+  System.Classes,
+  CalculoOperacoes,
   System.SysUtils;
 
 type
@@ -20,7 +20,7 @@ type
     procedure Somar_Menos3Com2_ResultadoMenos1;
     procedure Somar_2Ponto5Com1Ponto3_Resultado3Ponto3;
     procedure Subtrair_4com2_Resultado2;
-    procedure Subtrair_3comMenos1Ponto9_Resultado4Ponto9;
+    procedure Subtrair_3ComMenos1Ponto9_Resultado4Ponto9;
     procedure Subtrair_Menos3Com4_ResultadoMenos1;
     procedure Subtrair_3Ponto8Com1Ponto6_Resultado2Ponto2;
     procedure Multiplicar_4Com4_Resultado16;
@@ -28,7 +28,6 @@ type
     procedure Multiplicar_Menos3com1Ponto5_ResultadoMenos4Ponto5;
     procedure Dividir_5Com2_Resultado2Ponto5;
     procedure Dividir_12ComMenos1Ponto5_ResultadoMenos6Ponto66;
-
   end;
 
 implementation
@@ -58,7 +57,7 @@ begin
   CheckEquals(2, FSUT.Subtrair(4, 2));
 end;
 
-procedure TCalculoOperacoesTests.Subtrair_3comMenos1Ponto9_Resultado4Ponto9;
+procedure TCalculoOperacoesTests.Subtrair_3ComMenos1Ponto9_Resultado4Ponto9;
 begin
   CheckEquals(4.9, FSUT.Subtrair(3, -1.9));
 end;
@@ -97,7 +96,6 @@ procedure TCalculoOperacoesTests.Dividir_12ComMenos1Ponto5_ResultadoMenos6Ponto6
 begin
   CheckEquals(-8, FSUT.Dividir(12, -1.5));
 end;
-
 
 procedure TCalculoOperacoesTests.TearDown;
 begin
