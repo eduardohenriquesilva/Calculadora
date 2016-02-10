@@ -8,12 +8,10 @@ uses
 
 type
   TDmCalculoOperacoes = class(TDataModule)
-    procedure DataModuleCreate(Sender: TObject);
   public
     function Somar(const ValorEsquerda, ValorDireita: Currency): Currency;
     function Subtrair(const ValorEsquerda, ValorDireita: Currency): Currency;
     function Multiplicar(const ValorEsquerda, ValorDireita: Currency): Currency;
-
   end;
 
 var
@@ -24,11 +22,6 @@ implementation
 { %CLASSGROUP 'System.Classes.TPersistent' }
 
 {$R *.dfm}
-
-procedure TDmCalculoOperacoes.DataModuleCreate(Sender: TObject);
-begin
-
-end;
 
 { TDmCalculoOperacoes }
 
